@@ -4,6 +4,7 @@ const { Schema } = mongoose;
 
 const User = require('./user.model');
 
+// TODO Replace with enum if there is time
 const postStatus = [
   'publish',
   'draft',

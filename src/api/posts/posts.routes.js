@@ -7,7 +7,7 @@ const postsSchema = require('./posts.validation');
 
 // eslint-disable-next-line no-unused-vars
 const {
-  createPost, getPosts, getPost, ratePost, editPost, publishPost,
+  createPost, getPosts, getPost, ratePost, editPost, publishPost, addComment,
 } = require('./posts.service');
 
 /**
@@ -36,6 +36,9 @@ router.patch('/:action/:id', (req, res) => {
       break;
     case 'publish':
       response = publishPost;
+      break;
+    case 'comment':
+      response = addComment;
       break;
     default:
       res.json(`Action ${action} does not exist`, 400);
