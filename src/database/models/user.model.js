@@ -1,11 +1,16 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const { Schema } = mongoose;
+
 const userSchema = new mongoose.Schema({
-  name: {
+  firstName: {
     type: String,
-    unique: true,
     required: true,
+  },
+  lastName: {
+    type: String,
+    require: true,
   },
   email: {
     type: String,
@@ -16,6 +21,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Post',
+  }],
 }, { timestamps: true });
 
 /* eslint-disable consistent-return */

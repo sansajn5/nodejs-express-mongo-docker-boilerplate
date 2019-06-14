@@ -9,7 +9,7 @@ require('dotenv').config({
   path: envPath,
 });
 
-const { authRoutes, userRoutes, basketballRoutes } = require('./api');
+const { authRoutes, userRoutes } = require('./api');
 const db = require('./database/index');
 
 const app = express();
@@ -31,7 +31,6 @@ app.use((err, req, res, next) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/basketball', basketballRoutes);
 
 db.connect()
   // eslint-disable-next-line no-console
