@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const tagSchema = new mongoose.Schema({
-  categoryName: {
-    name: String,
+  name: {
+    type: String,
   },
 }, { timestamps: true });
 

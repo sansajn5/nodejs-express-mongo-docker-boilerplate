@@ -10,4 +10,6 @@ RUN yarn
 
 COPY . .
 
+CMD ['yarn', 'seed']
+
 CMD [ "yarn", "dev" ]

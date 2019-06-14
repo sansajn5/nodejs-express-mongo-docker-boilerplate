@@ -9,7 +9,9 @@ require('dotenv').config({
   path: envPath,
 });
 
-const { authRoutes, userRoutes } = require('./api');
+const {
+  authRoutes, userRoutes, postRoutes, categoryRoutes, tagRoutes,
+} = require('./api');
 const db = require('./database/index');
 
 const app = express();
@@ -31,6 +33,9 @@ app.use((err, req, res, next) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/posts', postRoutes);
+app.use('/api/categories', categoryRoutes);
+app.use('/api/tags', tagRoutes);
 
 db.connect()
   // eslint-disable-next-line no-console

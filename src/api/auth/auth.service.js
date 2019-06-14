@@ -4,11 +4,14 @@ const { User } = require('./../../database/models');
 
 const me = token => token.user;
 
-const register = async ({ email, password, name }) => {
+const register = async ({
+  email, password, firstName, lastName,
+}) => {
   const user = new User({
     email,
     password,
-    name,
+    firstName,
+    lastName,
   });
 
   return user.save();

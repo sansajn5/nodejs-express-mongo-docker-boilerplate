@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon --exec babel-node src/server.js",
-    "seed": "node src/database/seeds/tagSeeder.js && node src/database/seeds/categorySeeder.js"
+    "seed": "node src/database/seeds/tagSeeder.js && node src/database/seeds/categorySeeder.js && node src/database/seeds/userSeeder.js"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -28,6 +28,7 @@
     "express": "^4.16.4",
     "express-jwt": "^5.3.1",
     "joi": "^14.3.1",
+    "joi-objectid": "^2.0.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.11",
     "mongoose": "^5.5.4",

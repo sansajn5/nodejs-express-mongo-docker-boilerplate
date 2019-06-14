@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
+const User = require('./user.model');
+
 const postStatus = [
   'publish',
   'draft',
@@ -39,11 +41,22 @@ const postSchema = new mongoose.Schema({
     ref: 'Tag',
   }],
   rates: [{
-    type: Number,
+    value: Number,
     ratedBy: String,
   }],
 }, { timestamps: true });
 
+postSchema.post('save', (post) => {
+  User.findOne({ email: post.authorName }, (err, user) => {
+    // eslint-disable-next-line no-underscore-dangle
+    user.posts.push(post._id);
+    user.save();
+  });
+});
+
 const Post = mongoose.model('Post', postSchema);
 
-module.exports = Post;
+module.exports = {
+  Post,
+  postStatus,
+};

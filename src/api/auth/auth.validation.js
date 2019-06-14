@@ -2,7 +2,11 @@ const Joi = require('joi');
 
 const registerSchema = {
   body: Joi.object().keys({
-    name: Joi.string()
+    firstName: Joi.string()
+      .min(3)
+      .max(16)
+      .required(),
+    lastName: Joi.string()
       .min(3)
       .max(16)
       .required(),
