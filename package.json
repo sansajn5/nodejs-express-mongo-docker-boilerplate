@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-express-mongo-boilerplate",
+  "version": "1.0.0",
+  "description": "NodeJS Express boilerplate with MongoDB",
+  "main": "server.js",
+  "author": "Nemanja Mudrinic <mudrinic5n@outlook.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --exec babel-node src/server.js",
+    "test": "jest --coverage --coverageDirectory=output/coverage/jest"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "jest": "^24.8.0",
+    "nodemon": "^1.18.11"
+  },
+  "dependencies": {
+    "@babel/preset-env": "^7.4.5",
+    "axios": "^0.19.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "dotenv": "^7.0.0",
+    "eslint-plugin-jest": "^22.6.4",
+    "express": "^4.16.4",
+    "express-jwt": "^5.3.1",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.11",
+    "mongoose": "^5.5.4",
+    "morgan": "^1.9.1"
+  }
+}
