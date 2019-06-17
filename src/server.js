@@ -10,7 +10,7 @@ require('dotenv').config({
 });
 
 const {
-  authRoutes, userRoutes, postRoutes, categoryRoutes, tagRoutes,
+  authRoutes, userRoutes,
 } = require('./api');
 const db = require('./database/index');
 
@@ -19,6 +19,12 @@ const port = 3000 || process.env.APP_PORT;
 
 app.use(morgan('combined'));
 
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Will change to actual Internal network IP
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, GET, PUT, DELETE, OPTIONS');
+  next();
+});
 app.use(bodyParser.json());
 
 const jwtAuth = expressJwt({
@@ -33,9 +39,6 @@ app.use((err, req, res, next) => {
 
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/posts', postRoutes);
-app.use('/api/categories', categoryRoutes);
-app.use('/api/tags', tagRoutes);
 
 db.connect()
   // eslint-disable-next-line no-console
