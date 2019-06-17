@@ -26,12 +26,6 @@ const data = [
         lastName: 'mudrinic',
       },
       {
-        email: 'symphony@super.com',
-        password: bcrypt.hashSync('symphony', 10),
-        firstName: 'symphony',
-        lastName: 'symphony',
-      },
-      {
         email: 'test@super.com',
         password: bcrypt.hashSync('test123', 10),
         firstName: 'test',
